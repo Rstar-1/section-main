@@ -1,0 +1,161 @@
+const sidebarmenu = [
+  {
+    icon: "grid",
+    name: "Dashboard",
+    route: "dashboard",
+    accordian: "accordion-1",
+    tabId: "cb1",
+    dropdown: [],
+  },
+  {
+    icon: "folder",
+    name: "Management",
+    route: "management",
+    accordian: "accordion-2",
+    tabId: "cb2",
+    dropdown: [],
+  },
+  {
+    icon: "file",
+    name: "CMS",
+    route: "cms",
+    accordian: "accordion-4",
+    tabId: "cb4",
+    dropdown: [],
+  },
+  {
+    icon: "book",
+    name: "Bill Summary",
+    route: "billing",
+    accordian: "accordion-6",
+    tabId: "cb6",
+    dropdown: [],
+  },
+  {
+    icon: "help-circle",
+    name: "How it Works",
+    route: "how-works",
+    accordian: "accordion-3",
+    tabId: "cb3",
+    dropdown: [],
+  },
+  {
+    icon: "search",
+    name: "Seo",
+    route: "seo",
+    accordian: "accordion-5",
+    tabId: "cb5",
+    dropdown: [],
+  },
+];
+
+// const sidebarmenu = [
+//   {
+//     icon: "grid",
+//     name: "Dashboard",
+//     route: "dashboard",
+//     accordian: "accordion-1",
+//     tabId: "cb1",
+//     dropdown: [],
+//   },
+//   {
+//     icon: "user",
+//     name: "Pages",
+//     route: "",
+//     accordian: "accordion-2",
+//     tabId: "cb2",
+//     dropdown: [
+//       {
+//         icon: "user",
+//         name: "About Us",
+//         route: "AboutUs",
+//       },
+//       {
+//         icon: "grid",
+//         name: "Services",
+//         route: "Services",
+//       },
+//       {
+//         icon: "plus",
+//         name: "Teams",
+//         route: "Teams",
+//       },
+//       {
+//         icon: "edit",
+//         name: "Gallery",
+//         route: "Gallery",
+//       },
+//       {
+//         icon: "grid",
+//         name: "Connect Us",
+//         route: "ConnectUs",
+//       },
+//     ],
+//   },
+//   {
+//     icon: "settings",
+//     name: "Sections",
+//     route: "sections",
+//     accordian: "accordion-3",
+//     tabId: "cb3",
+//     dropdown: [
+//       {
+//         icon: "user",
+//         name: "About Us",
+//         route: "AboutUs",
+//       },
+//       {
+//         icon: "grid",
+//         name: "Services",
+//         route: "Services",
+//       },
+//       {
+//         icon: "plus",
+//         name: "Teams",
+//         route: "Teams",
+//       },
+//     ],
+//   },
+//   {
+//     icon: "folder",
+//     name: "Blogs",
+//     route: "blogs",
+//     accordian: "accordion-4",
+//     tabId: "cb4",
+//     dropdown: [],
+//   },
+//   {
+//     icon: "grid",
+//     name: "Ecom",
+//     route: "ecom",
+//     accordian: "accordion-5",
+//     tabId: "cb5",
+//     dropdown: [],
+//   },
+//   {
+//     icon: "phone-call",
+//     name: "Elearning",
+//     route: "elearning",
+//     accordian: "accordion-6",
+//     tabId: "cb6",
+//     dropdown: [],
+//   },
+//   {
+//     icon: "grid",
+//     name: "Ecom",
+//     route: "ecom",
+//     accordian: "accordion-5",
+//     tabId: "cb5",
+//     dropdown: [],
+//   },
+//   {
+//     icon: "phone-call",
+//     name: "Elearning",
+//     route: "elearning",
+//     accordian: "accordion-6",
+//     tabId: "cb6",
+//     dropdown: [],
+//   },
+// ];
+
+export default sidebarmenu;
