@@ -1,8 +1,16 @@
 /* ======================= Start-Color ======================= */
 :root {
-  --primary: #6610f2 !important;
-  --secondary: #c54b8c !important;
-  --tertiary: #e8f2fc !important;
+  --primary: linear-gradient(
+    270deg,
+    rgba(115, 103, 240, 0.7) 0%,
+    #7367f0 100%
+  ) !important;
+  --secondary: linear-gradient(
+    270deg,
+    #e5b1b3 0%,
+    #ff4c51 100%
+  ) !important;
+  --tertiary: #f8f7fb !important;
   --forth: #0f172a !important;
   --success: #4bb543 !important;
   --warning: #ff5722 !important;
@@ -11,7 +19,7 @@
   --white: #fff !important;
   --card: #fff !important;
   --dark: #000 !important;
-  --gray: gray !important;
+  --gray: #808390 !important;
 }
 .dark-mode {
   --primary: #74c2a8 !important;
@@ -67,7 +75,7 @@
   background: var(--dark);
 }
 .bg-light-primary {
-  background: #efeeef4b !important;
+  background: #e9e7fd !important
 }
 .bg-light-secondary {
   background: #faf1f1 !important;
@@ -116,7 +124,7 @@
 
 /* ======================= Start-Text-Color ======================= */
 .textprimary {
-  color: var(--primary);
+  color: #7367f0;
 }
 .textcard {
   color: var(--card);
@@ -230,6 +238,7 @@ a {
   font-family: "poppins-semibold" !important;
 }
 p {
+  letter-spacing: 1px;
   line-height: 24px !important;
   @media (max-width: 640px) {
     line-height: 20px !important;
@@ -553,23 +562,20 @@ p {
 
 /* ======================= End-Admin ======================= */
 
-// Dashboard 1
 .w-side {
-  width: 17% !important;
+  min-width: 17% !important;
 }
 .w-route {
-  width: 83% !important;
+  width: 81.5% !important;
   @media (max-width: 912px) and (min-width: 641px) {
-    width: 100% !important;
+    width: 97% !important;
+    padding: 0px 8px;
   }
   @media (max-width: 640px) {
-    width: 100% !important;
+    width: 94% !important;
+    padding: 0px 5px;
   }
 }
-// Dashboard 1
-
-// Dashboard 2
-// Dashboard 2
 
 /* ======================= End-Admin ======================= */
 
@@ -583,48 +589,6 @@ p {
   width: 20px !important;
   height: 20px !important;
 }
-
-// Section 1
-.sidebar1 .activesidebar {
-  color: var(--gray);
-}
-.sidebar1 .active {
-  color: var(--primary);
-}
-// Section 1
-
-// Section 2
-.sidebar2 .activesidebar .icon-circle {
-  color: var(--primary);
-  background: #efeeef4b !important;
-}
-.sidebar2 .active .icon-circle {
-  color: var(--primary);
-  background: var(--primary);
-}
-.sidebar2 .activesidebar .text-side {
-  color: var(--gray);
-}
-.sidebar2 .active .text-side {
-  color: var(--primary);
-}
-.icon-circle {
-  width: 24px !important;
-  height: 24px !important;
-}
-// Section 2
-
-// Section 3
-.sidebar3 .activesidebar {
-  color: var(--gray);
-}
-.sidebar3 .active {
-  color: var(--white);
-  background: var(--primary);
-}
-// Section 3
-
-// Section 4
 .sidebar4 .activesidebar {
   color: var(--gray);
 }
@@ -632,63 +596,29 @@ p {
   color: var(--white);
   background: var(--primary);
 }
-// Section 4
-
-// Section 5
-.sidebar5 .activesidebar {
-  color: var(--gray);
-}
-.sidebar5 .active {
-  color: var(--primary);
-  border-left: 4px solid var(--primary);
-  background: #efeeef4b !important;
-}
-// Section 5
-
-// Section 6
-.sidebar6 .activesidebar {
-  color: var(--gray);
-}
-.sidebar6 .active {
-  color: var(--primary);
-  border-left: 4px solid var(--primary);
-  border-radius: 8px 0px 0px 8px !important;
-  background: #efeeef4b !important;
-}
-// Section 6
 
 /* ======================= End-Sidebar ======================= */
 
 /* ======================= Start-Header ======================= */
 
 .header-logo {
-  width: 60px !important;
-  height: 60px !important;
+  width: 40px !important;
+  height: 40px !important;
   @media (max-width: 912px) {
     width: 50px !important;
     height: 50px !important;
   }
 }
 
-// Header 1
 .border-h1 {
   margin-top: 8px !important;
-  border-radius: 10px !important;
+  border-radius: 6px !important;
+  width: 100% !important;
   @media (max-width: 912px) {
     margin-top: 5px !important;
-    border-radius: 8px !important;
+    border-radius: 5px !important;
   }
 }
-// Header 1
-
-// Header 2
-.border-h2 {
-  border-radius: 0px 0px 10px 10px !important;
-  @media (max-width: 912px) {
-    border-radius: 8px !important;
-  }
-}
-// Header 2
 
 /* ======================= End-Header ======================= */
 
@@ -714,12 +644,12 @@ tr:nth-child(even):hover {
 .h-input {
   height: 35px !important;
 }
-input:focus-visible{
+input:focus-visible {
   outline: none;
   border: 1px solid var(--primary) !important;
 }
 .cust-scroll {
-  height: 77vh !important;
+  height: 85vh !important;
   overflow-y: auto !important;
 }
 .side-input {
@@ -743,7 +673,7 @@ input:focus-visible{
     width: 90% !important;
   }
 }
-.close{
+.close {
   width: 20px !important;
   height: 20px !important;
 }
@@ -760,7 +690,7 @@ input:focus-visible{
   height: 150px !important;
   opacity: 0 !important;
 }
-.preview-img{
+.preview-img {
   height: 158px !important;
 }
 .table-colsm {
@@ -803,89 +733,23 @@ input:focus-visible{
 
 /* ======================= Start-dashboard ======================= */
 
-// Dashboard 1
-.dash1-h {
-  height: 140px !important;
+.dash-img {
+  width: 100% !important;
+  height: 110px !important;
 }
-.bordt {
-  border-top: 1px solid #ececec !important;
+.dashsection-img {
+  width: 100% !important;
+  height: 160px !important;
 }
-.dash1-minus {
-  margin-top: -7% !important;
+.dash-patch{
+  border-radius: 0px 16px 0px 0px;
 }
-.dash1-social {
-  width: 70px !important;
-  height: 70px !important;
+.dash-hr{
+  border: none;
+  height: 3px;
+  background: var(--primary);
+  margin: 0px;
 }
-// Dashboard 1
-
-// Dashboard 2
-.dash2-h {
-  height: 130px !important;
-}
-.dash2-social {
-  width: 70px !important;
-  height: 70px !important;
-}
-.primary-border {
-  border-left: 5px solid var(--primary);
-}
-.secondary-border {
-  border-left: 5px solid var(--secondary);
-}
-.warning-border {
-  border-left: 5px solid var(--warning);
-}
-.success-border {
-  border-left: 5px solid var(--success);
-}
-// Dashboard 2
-
-// Dashboard 3
-.dash3-h {
-  height: 140px !important;
-}
-.circle1 {
-  width: 120px !important;
-  height: 120px !important;
-  border-radius: 50% !important;
-  margin-top: -35% !important;
-  margin-left: 10% !important;
-}
-.circle2 {
-  width: 120px !important;
-  height: 120px !important;
-  border-radius: 50% !important;
-  margin-top: 30% !important;
-  margin-left: 28% !important;
-}
-// Dashboard 3
-
-// Dashboard 4
-.dash4-h {
-  height: 130px !important;
-}
-// Dashboard 4
-
-// Dashboard 5
-// Dashboard 5
-
-// Dashboard 6
-.dash6-h {
-  height: 150px !important;
-}
-// Dashboard 6
-
-// Dashboard 6
-.dash7-h {
-  height: 150px !important;
-  border-bottom: 4px solid var(--primary);
-}
-.map-img {
-  width: 100px !important;
-  height: 100px !important;
-}
-// Dashboard 6
 
 /* ======================= End-dashboard ======================= */
 
@@ -929,13 +793,12 @@ input:focus-visible{
 
 /* ======================= Start-Nodata ======================= */
 
-
 .nodata-img {
   width: 130px !important;
   height: 130px !important;
   @media (max-width: 640px) {
     width: 90px !important;
-  height: 90px !important;
+    height: 90px !important;
   }
 }
 .setting-scroll {

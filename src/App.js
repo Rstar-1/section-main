@@ -22,7 +22,6 @@ import Service from "./pages/admin/layouts/components/customize/services/Service
 import Gallery from "./pages/admin/layouts/components/customize/gallery/Gallery";
 import Review from "./pages/admin/layouts/components/customize/reviews/Review";
 import Faq from "./pages/admin/layouts/components/customize/faqs/Faq";
-import WhatsAppButton from "./WhatsAppButton";
 
 const App = () => {
   const location = useLocation();
@@ -39,7 +38,7 @@ const App = () => {
           className={
             location.pathname === "/login" || location.pathname === "/register"
               ? "w-full"
-              : "w-route mlpx9 md-mlpx1 sm-mlpx1 mrpx9 md-mrpx1 sm-mrpx1"
+              : "w-route px10"
           }
         >
           {location.pathname === "/login" ||
@@ -73,14 +72,6 @@ const App = () => {
             {/* ======================= End-Error ======================= */}
           </Routes>
         </div>
-      </div>
-      <div className="fixed bottom-0 right-0 m10 z-50">
-        <WhatsAppButton
-          phoneNumber="9867517042"
-          userName="John Doe"
-          productName="Awesome Product"
-          imageUrl="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
-        />
       </div>
     </div>
   );

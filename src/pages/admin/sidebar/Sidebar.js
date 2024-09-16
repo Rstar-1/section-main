@@ -6,7 +6,7 @@ import sidebarmenu from "./components/NavData";
 
 const Sidebar = () => {
   return (
-    <div className="bgcard h-100 overflow-auto relative sidebar4">
+    <div className="bgcard h-100 overflow-auto relative sidebar4 b-shadow">
       <div className="">
         <div className="flex justify-center py5">
           <img src={logo} alt="logo" className="sidebar-logo object-contain" />
@@ -18,7 +18,7 @@ const Sidebar = () => {
                 <div className="">
                   {e.dropdown.length > 0 ? (
                     <>
-                      <div class="accordion my2">
+                      <div class="accordion">
                         <div class="tab">
                           <input
                             type="checkbox"
@@ -47,7 +47,7 @@ const Sidebar = () => {
                             </div>
                           </label>
                           <div class="tab__content">
-                            <div className="grid grid-cols-1 prpx15 plpx10">
+                            <div className="grid grid-cols-1 px2">
                               {e.dropdown.map((drop) => (
                                 <NavLink
                                   activeClassName="active"
@@ -56,10 +56,10 @@ const Sidebar = () => {
                                 >
                                   <FeatherIcon
                                     icon={drop.icon}
-                                    className=" cursor-pointer"
-                                    size={15}
+                                    className="flex cursor-pointer"
+                                    size={11}
                                   />
-                                  <p className="fsize13 mtpx2 font-300">
+                                  <p className="fsize13 font-300">
                                     {drop.name}
                                   </p>
                                 </NavLink>
