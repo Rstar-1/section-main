@@ -163,15 +163,15 @@ const GalleryTable = () => {
                     <th className="fsize13 textwhite font-300 table-collg">
                       <p>Description</p>
                     </th>
-                    {/* <th className="fsize13 textwhite font-300 table-collg">
-                    <p>Created At</p>
-                  </th>
-                  <th className="fsize13 textwhite font-300 table-collg">
-                    <p>Updated At</p>
-                  </th>
-                  <th className="fsize13 textwhite font-300 table-colsm">
-                    <p>Status</p>
-                  </th> */}
+                    <th className="fsize13 textwhite font-300 table-collg">
+                      <p>Created At</p>
+                    </th>
+                    <th className="fsize13 textwhite font-300 table-collg">
+                      <p>Updated At</p>
+                    </th>
+                    <th className="fsize13 textwhite font-300 table-colsm">
+                      <p>Status</p>
+                    </th>
                     <th className="fsize13 textwhite font-300 table-colsm">
                       <p>Actions</p>
                     </th>
@@ -196,15 +196,15 @@ const GalleryTable = () => {
                       <td className="fsize13 textforth font-300 table-collg">
                         <p>{e.subtitle}</p>
                       </td>
-                      {/* <td className="fsize13 textforth font-300 table-collg">
-                          <p>{e.description}</p>
-                        </td>
-                        <td className="fsize13 textforth font-300 table-collg">
-                          <p>{new Date(e.createdAt).toDateString()}</p>
-                        </td>
-                        <td className="fsize13 textforth font-300 table-collg">
-                          <p>{new Date(e.updatedAt).toDateString()}</p>
-                        </td> */}
+                      <td className="fsize13 textforth font-300 table-collg">
+                        <p>{e.description}</p>
+                      </td>
+                      <td className="fsize13 textforth font-300 table-collg">
+                        <p>{new Date(e.createdAt).toDateString()}</p>
+                      </td>
+                      <td className="fsize13 textforth font-300 table-collg">
+                        <p>{new Date(e.updatedAt).toDateString()}</p>
+                      </td>
                       <td className="fsize13 textforth font-300 table-colsm">
                         {e.status === true ? (
                           <>

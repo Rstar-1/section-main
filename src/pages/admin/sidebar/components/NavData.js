@@ -67,6 +67,11 @@ const sidebarmenu = [
     dropdown: [
       {
         icon: "circle",
+        name: "Home",
+        route: "home",
+      },
+      {
+        icon: "circle",
         name: "About Us",
         route: "AboutUs",
       },
@@ -77,13 +82,8 @@ const sidebarmenu = [
       },
       {
         icon: "circle",
-        name: "Teams",
+        name: "Blog",
         route: "Teams",
-      },
-      {
-        icon: "circle",
-        name: "Gallery",
-        route: "Gallery",
       },
       {
         icon: "circle",
@@ -92,62 +92,37 @@ const sidebarmenu = [
       },
       {
         icon: "circle",
-        name: "Services",
-        route: "Services",
-      },
-      {
-        icon: "circle",
-        name: "Teams",
-        route: "Teams",
-      },
-      {
-        icon: "circle",
         name: "Gallery",
         route: "Gallery",
       },
       {
         icon: "circle",
-        name: "Connect Us",
+        name: "Subscription",
+        route: "Gallery",
+      },
+      {
+        icon: "circle",
+        name: "Page1",
         route: "ConnectUs",
       },
       {
         icon: "circle",
-        name: "Services",
+        name: "Page2",
         route: "Services",
       },
       {
         icon: "circle",
-        name: "Teams",
+        name: "Page3",
         route: "Teams",
       },
       {
         icon: "circle",
-        name: "Gallery",
+        name: "Page4",
         route: "Gallery",
       },
       {
         icon: "circle",
-        name: "Connect Us",
-        route: "ConnectUs",
-      },
-      {
-        icon: "circle",
-        name: "Services",
-        route: "Services",
-      },
-      {
-        icon: "circle",
-        name: "Teams",
-        route: "Teams",
-      },
-      {
-        icon: "circle",
-        name: "Gallery",
-        route: "Gallery",
-      },
-      {
-        icon: "circle",
-        name: "Connect Us",
+        name: "Page5",
         route: "ConnectUs",
       },
     ],

@@ -22,6 +22,7 @@ import Service from "./pages/admin/layouts/components/customize/services/Service
 import Gallery from "./pages/admin/layouts/components/customize/gallery/Gallery";
 import Review from "./pages/admin/layouts/components/customize/reviews/Review";
 import Faq from "./pages/admin/layouts/components/customize/faqs/Faq";
+import Home from "./pages/admin/layouts/components/pages/home/Home";
 
 const App = () => {
   const location = useLocation();
@@ -53,6 +54,7 @@ const App = () => {
             {/* ======================= Start-Login ======================= */}
             {/* ======================= Start-Pages ======================= */}
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/management" element={<Management />} />
             <Route path="/brands" element={<Brands />} />
             <Route path="/clients" element={<Clients />} />
