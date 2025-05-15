@@ -2,24 +2,18 @@ import React, { useState, useEffect } from "react";
 import FeatherIcon from "feather-icons-react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  paginationgallery,
-  deletegallery,
-  statusgallery,
-} from "../../../../../../redux/managementredux/GallerySlice";
-import { showapidata } from "../../../../../../redux/apiredux/ApiSlice";
-import {
-  paginationservice,
-  deleteservice,
-  statusservice,
-} from "../../../../../../redux/managementredux/ServiceSlice";
+  paginationapi,
+  deleteapidata,
+  statusapi,
+} from "../../../../../redux/apiredux/ApiSlice";
 import ReactPaginate from "react-paginate";
-import Search from "../../../../../components/Search";
-import Nodata from "../../../../../error/Nodata";
-import Banner from "../../../../../components/Banner";
+import Search from "../../../../components/Search";
+import Nodata from "../../../../error/Nodata";
+import Banner from "../../../../components/Banner";
 import Edit from "./components/Edit";
 import Add from "./components/Add";
 
-const Home = () => {
+const Api = () => {
   // Add Edit Popup
   const [addshow, setaddshow] = useState(false);
   const [editshow, seteditshow] = useState(false);
@@ -27,20 +21,8 @@ const Home = () => {
 
   // Redux State
   const dispatch = useDispatch();
-  const getdata = useSelector((state) => {
-    if (window.location.pathname.includes("home")) {
-      return state.gallerydata.gallerydata.gallerystore;
-    } else if (window.location.pathname.includes("AboutUs")) {
-      return state.servicedata.servicedata.servicestore;
-    }
-  });
-  const totalCount = useSelector((state) => {
-    if (window.location.pathname.includes("home")) {
-      return state.gallerydata.totalCount;
-    } else if (window.location.pathname.includes("AboutUs")) {
-      return state.servicedata.totalCount;
-    }
-  });
+  const getdata = useSelector((state) => state.apidata.apidata.apistore);
+  const totalCount = useSelector((state) => state.apidata.totalCount);
   // Redux State
 
   // Pagination and Search
@@ -60,38 +42,19 @@ const Home = () => {
 
   // API useEffect
   useEffect(() => {
-    dispatch(showapidata());
-    if (window.location.pathname.includes("home")) {
-      dispatch(paginationgallery({ offset: currentpage * 6, search }));
-    } else if (window.location.pathname.includes("AboutUs")) {
-      dispatch(paginationservice({ offset: currentpage * 6, search }));
-    } else {
-      dispatch(paginationservice({ offset: currentpage * 6, search }));
-    }
+    dispatch(paginationapi({ offset: currentpage * 6, search }));
   }, [dispatch, currentpage, search]);
   // API useEffect
 
   // Delete Data
   const handleDelete = async (id) => {
     try {
-      let resultAction;
-
-      if (window.location.pathname.includes("home")) {
-        resultAction = await dispatch(deletegallery(id));
-        if (deletegallery.fulfilled.match(resultAction)) {
-          alert("Deleted successfully");
-          dispatch(paginationgallery({ offset: currentpage * 6, search }));
-        } else {
-          alert("Failed to delete item");
-        }
-      } else if (window.location.pathname.includes("AboutUs")) {
-        resultAction = await dispatch(deleteservice(id));
-        if (deleteservice.fulfilled.match(resultAction)) {
-          alert("Deleted successfully");
-          dispatch(paginationservice({ offset: currentpage * 6, search }));
-        } else {
-          alert("Failed to delete item");
-        }
+      const resultAction = await dispatch(deleteapidata(id));
+      if (deleteapidata.fulfilled.match(resultAction)) {
+        alert("Deleted successfully");
+        dispatch(paginationapi({ offset: currentpage * 6, search }));
+      } else {
+        alert("Failed to delete item");
       }
     } catch (error) {
       console.error("Error deleting item:", error);
@@ -105,46 +68,14 @@ const Home = () => {
       const data = {
         status: newstatus,
       };
-
-      let resultAction;
-
-      if (window.location.pathname.includes("home")) {
-        resultAction = await dispatch(statusgallery({ id, data }));
-        if (statusgallery.fulfilled.match(resultAction)) {
-          alert("Published successfully");
-          dispatch(paginationgallery({ offset: currentpage * 6, search }));
-        } else {
-          alert("Failed to publish");
-        }
-      } else if (window.location.pathname.includes("AboutUs")) {
-        resultAction = await dispatch(statusservice({ id, data }));
-        if (statusservice.fulfilled.match(resultAction)) {
-          alert("Published successfully");
-          dispatch(paginationservice({ offset: currentpage * 6, search }));
-        } else {
-          alert("Failed to publish");
-        }
-      }
+      await dispatch(statusapi({ id, data }));
+      dispatch(paginationapi({ offset: currentpage * 6, search }));
+      // Optionally handle success or failure here
     } catch (error) {
-      console.error("Error updating status:", error);
+      console.error("Error updating user:", error);
     }
   };
   // Status
-
-  // Banner
-  const getBannerProps = () => {
-    if (window.location.pathname.includes("home")) {
-      return { Title: "Home", Original: "Home" };
-    } else if (window.location.pathname.includes("AboutUs")) {
-      return { Title: "About Us", Original: "About Us" };
-    } else if (window.location.pathname.includes("Contact")) {
-      return { Title: "Contact", Original: "Contact" };
-    } else {
-      return { Title: "Default Page", Original: "Default" };
-    }
-  };
-  const bannerProps = getBannerProps();
-  // Banner
 
   return (
     <div className="cust-scroll py12 px4 drawer">
@@ -159,7 +90,7 @@ const Home = () => {
           <div className="bgprimary p10">
             <div className="flex items-center justify-between gap-4 plpx10 prpx10">
               <p className="fsize16 textwhite mtpx4 mbpx4 cursor-pointer font-500">
-                Add {bannerProps.Title}
+                Add API
               </p>
               <FeatherIcon
                 icon="x"
@@ -183,7 +114,7 @@ const Home = () => {
           <div className="bgprimary p10">
             <div className="flex items-center justify-between gap-4 plpx10 prpx10">
               <p className="fsize16 textwhite mtpx4 mbpx4 cursor-pointer font-500">
-                Edit {bannerProps.Title}
+                Edit API
               </p>
               <FeatherIcon
                 icon="x"
@@ -196,11 +127,7 @@ const Home = () => {
           <Edit editshow={editshow} />
         </div>
       </div>
-      <Banner
-        Title={bannerProps.Title}
-        Route="Pages"
-        Original={bannerProps.Original}
-      />
+      <Banner Title="API" Route="Pages" Original="API" />
       <div className="mtpx20 flex items-center justify-between">
         <div className="w-60 md-w-70 sm-w-60">
           <Search search={search} change={handleSearchChange} />
@@ -218,20 +145,14 @@ const Home = () => {
             <table className="">
               <thead>
                 <tr>
-                  <th className="fsize13 textwhite font-300 table-colsm">
-                    <p>SectionId</p>
-                  </th>
-                  <th className="fsize13 textwhite font-300 table-colsm">
-                    <p>Image</p>
-                  </th>
                   <th className="fsize13 textwhite font-300 table-collg">
                     <p>Title</p>
                   </th>
                   <th className="fsize13 textwhite font-300 table-collg">
-                    <p>Sub Title</p>
+                    <p>Path</p>
                   </th>
                   <th className="fsize13 textwhite font-300 table-collg">
-                    <p>Description</p>
+                    <p>Project</p>
                   </th>
                   <th className="fsize13 textwhite font-300 table-collg">
                     <p>Created At</p>
@@ -251,23 +172,13 @@ const Home = () => {
                 {getdata?.map((e) => (
                   <tr>
                     <td className="fsize13 textforth font-300 table-colsm">
-                      <p>{e.sectionid}</p>
-                    </td>
-                    <td className="fsize13 textforth font-300 table-colsm">
-                      <img
-                        src={e.picture}
-                        className="table-img"
-                        alt="table-img"
-                      />
-                    </td>
-                    <td className="fsize13 textforth font-300 table-collg">
                       <p>{e.title}</p>
                     </td>
                     <td className="fsize13 textforth font-300 table-collg">
-                      <p>{e.subtitle}</p>
+                      <p>{e.path}</p>
                     </td>
                     <td className="fsize13 textforth font-300 table-collg">
-                      <p>{e.description}</p>
+                      <p>{e.project}</p>
                     </td>
                     <td className="fsize13 textforth font-300 table-collg">
                       <p>{new Date(e.createdAt).toDateString()}</p>
@@ -336,4 +247,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Api;

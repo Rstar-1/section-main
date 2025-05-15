@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 // Components
 import Sidebar from "./pages/admin/sidebar/Sidebar";
@@ -23,9 +24,29 @@ import Gallery from "./pages/admin/layouts/components/customize/gallery/Gallery"
 import Review from "./pages/admin/layouts/components/customize/reviews/Review";
 import Faq from "./pages/admin/layouts/components/customize/faqs/Faq";
 import Home from "./pages/admin/layouts/components/pages/home/Home";
+import Loader from "./pages/admin/layouts/components/popup/Loader";
+import Api from "./pages/admin/layouts/components/api/Api";
 
 const App = () => {
   const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  // Loading
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-100">
+        <Loader />
+      </div>
+    );
+  }
+  // Loading
+
   return (
     <div className="App relative">
       <div className="flex bgtertiary h-100 overflow-hidden">
@@ -55,6 +76,7 @@ const App = () => {
             {/* ======================= Start-Pages ======================= */}
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/AboutUs" element={<Home />} />
             <Route path="/management" element={<Management />} />
             <Route path="/brands" element={<Brands />} />
             <Route path="/clients" element={<Clients />} />
@@ -67,6 +89,7 @@ const App = () => {
             <Route path="/billing" element={<Billing />} />
             <Route path="/seo" element={<Seo />} />
             <Route path="/automation" element={<Settings />} />
+            <Route path="/apis" element={<Api />} />
             {/* ======================= End-Pages ======================= */}
             {/* ======================= Start-Error ======================= */}
             <Route path="*" element={<Error />} />

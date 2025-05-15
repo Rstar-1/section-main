@@ -74,10 +74,10 @@ const Management1 = () => {
     },
   ];
   return (
-    <div className="mtpx9 py30 bgcard sm-py20 px20 md-px10 sm-px10 rounded-10 cust-scroll">
+    <div className="cust-scroll py12 px4">
       <div className="flex md-flex sm-block w-full">
         <div className="w-40 md-w-50 sm-w-full prpx10">
-          <div className="p20 md-p10 sm-p10 bgwhite b-shadow rounded-5">
+          <div className="p20 md-p10 sm-p10 bgwhite d-shadow rounded-5">
             <h6 className="fsize18 md-fsize16 sm-fsize16 bordb mtpx1 mbpx1 px9 md-px5 sm-px5 pbpx6 font-600 textprimary">
               Lorem Iosum
             </h6>

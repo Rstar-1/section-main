@@ -1,24 +1,15 @@
-import React from 'react'
+import React from "react";
 
 const Nodata = () => {
   return (
-    <div>
-      <div className="text-center py40">
-        <div>
-          <div className="flex justify-center mbpx10">
-            <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/022/278/184/small_2x/file-not-found-3d-render-icon-illustration-with-transparent-background-empty-state-png.png"
-              alt="no-data"
-              className="nodata-img object-contain"
-            />
-          </div>
-          <h5 className="fsize26 md-fsize18 sm-fsize16 mtpx1 mbpx1 textprimary">
-            NO data Found
-          </h5>
-        </div>
-      </div>
+    <div className="flex justify-center py40">
+      <img
+        src="https://cdn3d.iconscout.com/3d/premium/thumb/searching-3d-icon-download-in-png-blend-fbx-gltf-file-formats--search-magnifier-find-man-data-server-and-backend-pack-network-communication-icons-6876354.png"
+        alt="no-data"
+        className="nodata-img object-contain"
+      />
     </div>
   );
-}
+};
 
-export default Nodata
+export default Nodata;

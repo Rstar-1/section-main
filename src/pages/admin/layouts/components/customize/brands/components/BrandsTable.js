@@ -6,6 +6,7 @@ import {
   deletebrand,
   statusbrand,
 } from "../../../../../../../redux/managementredux/BrandSlice";
+import { singleapidata } from "../../../../../../../redux/apiredux/ApiSlice";
 import AddBrand from "./add/AddBrand";
 import EditBrand from "./edit/EditBrand";
 import ReactPaginate from "react-paginate";
@@ -21,6 +22,8 @@ const BrandsTable = () => {
   // Redux State
   const dispatch = useDispatch();
   const getdata = useSelector((state) => state.branddata.branddata.brandstore);
+
+  // console.log(FinalApi, "gg");
   const totalCount = useSelector((state) => state.branddata.totalCount);
   // Redux State
 
@@ -41,7 +44,16 @@ const BrandsTable = () => {
 
   // API useEffect
   useEffect(() => {
-    dispatch(paginationbrand({ offset: currentpage * 6, search }));
+    const fetchProject = async () => {
+      try {
+        const response = await dispatch(singleapidata('66efb86628b7e27d9c930d78'));
+        const project = response.payload.path;
+        dispatch(paginationbrand({ offset: currentpage * 6, search, project }));
+      } catch (error) {
+        console.error("Failed to fetch project:", error);
+      }
+    };
+    fetchProject();
   }, [dispatch, currentpage, search]);
   // API useEffect
 

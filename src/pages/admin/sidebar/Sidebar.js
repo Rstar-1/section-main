@@ -1,10 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import FeatherIcon from "feather-icons-react";
 import logo from "../../../assets/logo.png";
 import sidebarmenu from "./components/NavData";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const reloadPage = (e) => {
+    navigate(e.route);
+    window.location.reload();
+  };
+  const reloadPage2 = (e) => {
+    navigate(e.route);
+    window.location.reload();
+  };
+  
   return (
     <div className="bgcard h-100 overflow-auto relative sidebar4 b-shadow">
       <div className="">
@@ -52,6 +62,7 @@ const Sidebar = () => {
                                 <NavLink
                                   activeClassName="active"
                                   className="flex items-center activesidebar py7 px10 rounded-5 gap-9"
+                                  onClick={() => reloadPage2(drop)}
                                   to={drop.route}
                                 >
                                   <FeatherIcon
@@ -74,6 +85,7 @@ const Sidebar = () => {
                       <NavLink
                         activeClassName="active"
                         className="flex items-center rounded-5 activesidebar px12 py8 gap-9"
+                        onClick={() => reloadPage(e)}
                         to={e.route}
                       >
                         <FeatherIcon

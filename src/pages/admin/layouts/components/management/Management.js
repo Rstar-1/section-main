@@ -32,8 +32,7 @@ const Management = () => {
             <div key={index} className="">
               {screen.status === true ? (
                 <>
-                  <Managements
-                  />
+                  <Managements />
                 </>
               ) : null}
             </div>

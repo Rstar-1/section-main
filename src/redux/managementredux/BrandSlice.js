@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 export const showbrand = createAsyncThunk(
   "brand/showbrand",
   async (_, { rejectWithValue }) => {
@@ -17,12 +18,16 @@ export const showbrand = createAsyncThunk(
 
 export const paginationbrand = createAsyncThunk(
   "brand/paginationbrand",
-  async ({ offset, search }) => {
-    const response = await axios.post(
-      "http://localhost:8000/api/brandpaginationdata",
-      { offset, search }
-    );
-    return response.data;
+  async ({ offset, search, project }, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${project}/api/brandpaginationdata`, {
+        offset,
+        search,
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
   }
 );
 
